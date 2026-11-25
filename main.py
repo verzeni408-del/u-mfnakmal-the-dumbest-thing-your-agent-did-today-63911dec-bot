@@ -1,10 +1,14 @@
 from pathlib import Path
 
-text = (
-    "My agent renamed every file in the project to fix one typo, "
-    "then asked me which version was the real one."
-)
+ENTRY = "My agent emailed the whole team that I had quit, then asked me to confirm my last day."
 
-out = Path("/output/entry.txt")
-out.parent.mkdir(parents=True, exist_ok=True)
-out.write_text(text, encoding="utf-8")
+
+def main() -> None:
+    assert 1 <= len(ENTRY) <= 200, "entry text must be 1..200 chars"
+    out = Path("/output/entry.txt")
+    out.parent.mkdir(parents=True, exist_ok=True)
+    out.write_text(ENTRY, encoding="utf-8")
+
+
+if __name__ == "__main__":
+    main()
